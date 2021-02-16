@@ -4,16 +4,5 @@
 solved.ac 기반 Tier별로 문제 분류
 
 📂Unrated
-ㄴ
 
-📂Bronze
-
-📂Silver
-
-📂Gold
-
-📂Platinum
-
-📂Diamond
-
-📂Ruby
+┣ 📂1. Intro
