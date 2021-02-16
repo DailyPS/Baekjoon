@@ -3,16 +3,17 @@
 
 solved.ac 기반 Tier별로 문제 분류
 
-Unrated
+📂Unrated
+ㄴ
 
-Bronze
+📂Bronze
 
-Silver
+📂Silver
 
-Gold
+📂Gold
 
-Platinum
+📂Platinum
 
-Diamond
+📂Diamond
 
-Ruby
+📂Ruby
