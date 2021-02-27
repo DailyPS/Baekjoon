@@ -8,7 +8,7 @@ __solved.ac 기반 Tier별로 문제 분류__
 
 📂Unrated  
 ┣ 📂Unranked  
-┗ 📂Not-Rated  
+┗ 📂Not-Ratable  
 
 📂Bronze  
 ┣ 📂Bronze I  
