@@ -1,0 +1,7 @@
+import hashlib
+
+msg = input()
+msg = msg.encode()
+msg_hash = hashlib.sha256()
+msg_hash.update(msg)
+print(msg_hash.hexdigest())
