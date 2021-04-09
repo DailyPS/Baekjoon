@@ -2,58 +2,50 @@
 
 using namespace std;
 
-int n;
-int check_cnt = 1;
-int arr[100][100];
-
-bool check_compress(int x, int y, int n)
-{
-    int standard = arr[x][y];
-
-    for (int i = x; i < x + n; i++)
-    {
-        for (int j = y; j < y + n; j++)
-        {
-            if (standard != arr[i][j])
-                return false;
-        }
-    }
-
-    return true;
-}
+int n, r, c;
+int ans = 0;
+bool found = false;
 
 void divide_and_conquer(int x, int y, int n)
 {
-    if (check_compress(x, y, n))
-        printf("%d", arr[x][y]);
+    if (n == 1)
+    {
+        if (x == r && y == c)
+        {
+            printf("%d", ans);
+            exit(0);
+        }
+
+        else
+            ans++;
+    }
 
     else
     {
-        printf("%c", '(');
+        if (x + n < r || y + n < c)
+            ans += n * n;
 
-        int new_n = n / 2;
-
-        for (int i = 0; i < 2; i++)
+        else
         {
-            for (int j = 0; j < 2; j++)
-                divide_and_conquer(x + new_n * i, y + new_n * j, new_n);
-        }
+            int new_n = n / 2;
 
-        printf("%c", ')');
-    } 
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                    divide_and_conquer(x + new_n * i, y + new_n * j, new_n);
+            }
+        }                                    
+    }    
+    
 }
 
 int main(void)
 {
-    scanf("%d", &n);
+    scanf("%d %d %d", &n, &r, &c);
 
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-            scanf("%1d", &arr[i][j]);
-    }
+    divide_and_conquer(0, 0, pow(2, n));
 
-    divide_and_conquer(0, 0, n);
+    printf("%d", ans);
 
     return 0;
 }
