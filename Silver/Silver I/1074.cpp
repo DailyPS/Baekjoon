@@ -29,7 +29,7 @@ void f(int len, int fr, int fc)
 
     else
     {
-       for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
             int nc = fc + dc[i] * len / 2;
             int nr = fr + dr[i] * len / 2;
