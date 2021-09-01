@@ -1,7 +1,7 @@
 a, b = map(int, input().split())
 c, d = divmod(a, b)
 
-if a != 0 and b < 0:
+if d != 0 and b < 0:
     c = c + 1
     d = d - b
 
