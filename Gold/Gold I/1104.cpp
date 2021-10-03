@@ -3,15 +3,15 @@
 using namespace std;
 
 string s1, s2;
-unsigned long long int c;
+long long int c;
 
-unsigned long long int s1_head_zero = 0, s1_tail_zero = 0;
-unsigned long long int s2_head_zero = 0, s2_tail_zero = 0;
-unsigned long long int len_s1, len_s2;
+long long int s1_head_zero = 0, s1_tail_zero = 0;
+long long int s2_head_zero = 0, s2_tail_zero = 0;
+long long int len_s1, len_s2;
 
-const unsigned long long int s1_repeat = 1e6;
-const unsigned long long int limit = 1e16;
-const unsigned long long int n_limit = 1e8;
+const long long int s1_repeat = 1e6;
+const long long int limit = 1e16;
+const long long int n_limit = 1e8;
 
 int main(void)
 {
@@ -20,8 +20,8 @@ int main(void)
 
   cin >> s1 >> s2 >> c;
 
-  len_s1 = (unsigned long long) s1.length();
-  len_s2 = (unsigned long long) s2.length();
+  len_s1 = (long long) s1.length();
+  len_s2 = (long long) s2.length();
 
   for (int i = 0; i < len_s1; i++)
   {
@@ -65,8 +65,8 @@ int main(void)
     return 0;
   }
 
-  unsigned long long int cnt = 0;
-  unsigned long long int ans = -1;
+  long long int cnt = 0;
+  long long int ans = LONG_LONG_MAX;
 
   // Case 1 : S1
   for (int i = 0; i < len_s1; i++)
@@ -121,7 +121,7 @@ int main(void)
       ans = min(ans, s1_repeat * len_s1 + len_s2 - s2_tail_zero);
   }
 
-  unsigned long long int n;
+  long long int n;
 
   // Case 8 : S1 + S2 + S1
   // Case 10 : S1 + S2 + S1 but S1 ends with 1
@@ -130,18 +130,18 @@ int main(void)
   // use Ns S1 and use (N - 1) * N / 2s S2
   if (len_s2 == s2_head_zero)
   {
-    n = (max(c - s1_head_zero, (unsigned long long) 0) + len_s2 - 1) / len_s2;
+    n = (max(c - s1_head_zero, (long long) 0) + len_s2 - 1) / len_s2;
 
     if (n > 0 && n <= 2 * n_limit && n * s1_repeat * len_s1 + n * (n - 1) * len_s2 / 2 + c <= limit)
       ans = min(ans, n * s1_repeat * len_s1 + n * (n - 1) * len_s2 / 2);
 
-    n = (max(c - s1_head_zero - s1_tail_zero, (unsigned long long) 0) + len_s2 - 1) / len_s2;
+    n = (max(c - s1_head_zero - s1_tail_zero, (long long) 0) + len_s2 - 1) / len_s2;
 
     if (n > 0 && n <= 2 * n_limit && n * s1_repeat * len_s1 + n * (n - 1) * len_s2 / 2 + c - s1_tail_zero <= limit)
       ans = min(ans, n * s1_repeat * len_s1 + n * (n - 1) * len_s2 / 2 - s1_tail_zero);
   }
 
-  cout << (long long) ans;
+  cout << (ans == LONG_LONG_MAX ? -1 : ans);
 
   return 0;
 }
