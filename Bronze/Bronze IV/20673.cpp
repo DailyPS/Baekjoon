@@ -11,7 +11,7 @@ int main(void)
     if (p <= 50 && q <= 10)
         printf("White");
 
-    else if (q >= 30)
+    else if (q > 30)
         printf("Red");
 
     else 
