@@ -42,7 +42,7 @@ int bfs()
           q.push(make_pair(make_pair(nx, ny), break_cnt));
         }
 
-        else if (maze[ny][nx] == '1' && break_cnt)
+        if (maze[ny][nx] == '1' && break_cnt && !visited[ny][nx][break_cnt - 1])
         {
           visited[ny][nx][break_cnt - 1] = visited[y][x][break_cnt] + 1;
           q.push(make_pair(make_pair(nx, ny), break_cnt - 1));
