@@ -9,7 +9,7 @@ int num_max = INT_MIN;
 int num_min = INT_MAX;
 int most_count = 0;
 
-double avg;
+int avg;
 double sum = 0;
 
 vector<int> v;
@@ -36,14 +36,11 @@ int main(void)
         else
             neg_count[0 - num]++;
 
-        if (num_max < num)
-            num_max = num;
-
-        if (num_min > num)
-            num_min = num;        
+        num_max = max(num_max, num);
+        num_min = min(num_min, num);
     }
 
-    avg = sum / n;
+    avg = round(sum / n);
 
     for (int i = 0; i <= 4000; i++)
     {
@@ -65,7 +62,7 @@ int main(void)
 
     sort(v.begin(), v.end());
 
-    printf("%.0lf\n%d\n%d\n%d", avg, v[n / 2], (most.size() == 1 ? most[0] : most[1]), num_max - num_min);
+    printf("%d\n%d\n%d\n%d", avg, v[n / 2], (most.size() == 1 ? most[0] : most[1]), num_max - num_min);
 
     return 0;
 }
