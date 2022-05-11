@@ -1,9 +1,12 @@
 #include <iostream>
 #include <algorithm>
+#include <limits.h>
 
 using namespace std;
 
 int number[20000];
+int min_diff = INT_MAX;
+int ans = 20001;
 
 int main(void)
 {
@@ -17,16 +20,18 @@ int main(void)
 		cin >> number[i];
 	}
 
-	sort(number, number + num);
+	for (int i = 0; i < num; i++) {
+    int tmp_diff = 0;
 
-	for (int i = 0; i < num; i++)
-	{
-		if (num / 2)
-			ans = number[(num / 2) - 1];
+    for (int j = 0; j < num; j++) {
+      tmp_diff += abs(number[i] - number[j]);
+    }
 
-		else
-			ans = number[num / 2];
-	}
+    if (tmp_diff < min_diff || (tmp_diff == min_diff && number[i] < ans)) {
+      min_diff = tmp_diff;
+      ans = number[i];
+    }
+  }
 
 	printf("%d", ans);
 }

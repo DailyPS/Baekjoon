@@ -24,7 +24,7 @@ int main(void)
         scanf("%d", &target);
 
         int start = 0;
-        int end = n;
+        int end = n - 1;
         bool found = false;
 
         while (start <= end)
