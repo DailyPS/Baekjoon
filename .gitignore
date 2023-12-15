@@ -30,7 +30,6 @@
 *.exe
 *.out
 *.app
-a.out
 
 # etc
 *.json
@@ -42,3 +41,5 @@ a.out
 !*.*
 # Unignore all dirs
 !*/
+
+*/*/a.out
