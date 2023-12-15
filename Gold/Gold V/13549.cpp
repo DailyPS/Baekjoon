@@ -16,7 +16,7 @@ int bfs(void)
     if (pos == k)
       return visited[k] - 1;
 
-    if (pos * 2 <= 100000 && !visited[pos * 2])
+    if (pos * 2 <= 100000 && (!visited[pos * 2] || visited[pos * 2] > visited[pos]))
     {
       hide_and_seek.push_front(2 * pos);
       visited[2 * pos] = visited[pos];

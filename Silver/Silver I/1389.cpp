@@ -2,18 +2,18 @@
 
 using namespace std;
 
-int n;
-int dist[105][105];
-const int INF = 1e9;
+long long int n;
+long long int dist[105][105];
+const long long int INF = 1e9;
 
 int main(void)
 {
-	int m, a, b, min_num = 999, min_person;
-	scanf("%d %d", &n, &m);
+	long long int m, a, b, min_num = 1e9, min_person;
+	scanf("%lld %lld", &n, &m);
 	
 	for (int i = 0; i < m; i++)
 	{
-		scanf("%d %d", &a, &b);
+		scanf("%lld %lld", &a, &b);
 		
 		dist[a][b] = 1; dist[b][a] = 1;
 	}
@@ -62,7 +62,7 @@ int main(void)
 		}
 	}
 	
-	printf("%d", min_person);
+	printf("%lld", min_person);
 	
 	return 0;
 }
